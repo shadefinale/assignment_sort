@@ -88,4 +88,70 @@ end
 
 #Finished in 0.00251 seconds
 
+# lst must be 10+ elements
+# def really_cheating_quick_sort(lst)
+#   lst.sort
+# end
+
+def quick_sort(lst)
+  return lst if lst.length <= 1
+  pivot = lst.shuffle.shift
+  left, right = lst.partition {|val| val < pivot}
+  quick_sort(left) + quick_sort(right)
+end
+
+# For sake of explaining, pivot is middle point
+# or left-of-middle value if even element array
+# [7,6,5,4,3,2,1]
+# pivot = 4
+# lst = [7,6,5,3,2,1]
+# left, right = lst.partition {criteria}
+# left = [4,3,2,1]
+# right = [7,6,5]
+
+# quick_sort(right)
+# [7,6,5]
+# pivot = 6
+# left = [5]
+# right = [7,6]
+# quick_sort(5) + quick_sort(7,6)
+
+# 5 + quick_sort(7,6)
+
+#     quick_sort([7,6])
+#     pivot = 7
+#     left = 6
+#     right = 7
+#     quick_sort(6) + quick_sort(7)
+
+# quick_sort(left) +  5 + 6 + 7
+
+# quick_sort(left)
+# [4,3,2,1]
+# pivot = 2
+# left = [1]
+# right = [4,3,2]
+# quick_sort([1]) + quick_sort([4,3,2])
+
+# 1 + quick_sort([4,3,2]) + 5 + 6 + 7
+
+  # quick_sort([4,3,2])
+  # [4,3,2]
+  # pivot = 3
+  # left = [2]
+  # right = [4,3]
+
+  # 1 + 2 + quick_sort([4,3]) + 5 + 6 + 7
+
+    # quick_sort([4,3])
+    # [4,3]
+    # pivot = 4
+    # left = [3]
+    # right = [4]
+    # 1 + 2 + quick_sort([3]) + quick_sort([4]) + 5 + 6 + 7
+
+# 1 + 2 + 3 + 4 + 5 + 6 + 7
+
+# [1,2,3,4,5,6,7]
+
 
