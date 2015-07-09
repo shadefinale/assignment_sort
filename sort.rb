@@ -50,7 +50,7 @@ def merge_sort(lst)
   left_sorted = merge_sort(lst)
   right_sorted = merge_sort(right_array)
 
-  return merge(left_sorted, right_sorted)
+  return merge_i(left_sorted, right_sorted)
 
 end
 
@@ -67,6 +67,25 @@ def merge(left, right)
   return [smallest] + merge(left, right)
 end
 
-#.00127
+#Finshed in 0.00127
+
+def merge_i(left, right)
+  
+  sorted = []
+
+  until left.empty? || right.empty?
+    if left.first <= right.first
+      sorted << left.shift
+    else
+      sorted << right.shift
+    end
+  end
+
+  sorted + (left) + (right)
+
+
+end
+
+#Finished in 0.00251 seconds
 
 
